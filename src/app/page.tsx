@@ -17,11 +17,11 @@ const NOVEDADES = [
 ];
 
 const ARTISTAS = [
-  { title: "Lady Jarana", sub: "Rumba · Pop · Fusión", href: "/artistas/lady-jarana", cover: "/artistas/lady-jarana.jpg" },
-  { title: "Cataleya", sub: "Soul · Pop elegante", href: "/artistas/cataleya", cover: "/artistas/cataleya.jpg" },
-  { title: "BEX Band", sub: "Indie · Pop", href: "/artistas/bex-band", cover: "/artistas/bex.jpg" },
-  { title: "Caribe Song", sub: "Latino · Tropical", href: "/artistas/caribe-song", cover: "/artistas/caribe.jpg" },
-  { title: "Julio Cé", sub: "Funk · Groove", href: "/artistas/julio-ce", cover: "/artistas/julio.jpg" },
+  { title: "Lady Jarana", sub: "Rumba · Pop · Fusión", href: "/artistas/lady-jarana", cover: "/artistas/artista-1.JPG" },
+  { title: "Cataleya", sub: "Soul · Pop elegante", href: "/artistas/cataleya", cover: "/artistas/artista-2.jpg" },
+  { title: "BEX Band", sub: "Indie · Pop", href: "/artistas/bex-band", cover: "/artistas/artista-3.jpg" },
+  { title: "Caribe Song", sub: "Latino · Tropical", href: "/artistas/caribe-song", cover: "/artistas/artista-4.jpg" },
+  { title: "Julio Cé", sub: "Funk · Groove", href: "/artistas/julio-ce", cover: "/artistas/artista-5.jpg" },
 ];
 
 export default function Home() {
