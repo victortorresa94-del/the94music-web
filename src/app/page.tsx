@@ -54,7 +54,7 @@ function Hero() {
           e.currentTarget.play().catch(console.log);
         }}
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="https://raw.githubusercontent.com/victortorresa94-del/the94music-web/main/public/videos/hero.mp4" type="video/mp4" />
         <source src="/videos/hero.webm" type="video/webm" />
         {/* Fallback si el video no carga */}
         <div 
