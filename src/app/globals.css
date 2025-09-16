@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: #F6F1E7;
+  --color-ink: #111111;
+  --color-muted: #6b6b6b;
+  --color-accent: #0F5132;
+  --color-accent2: #F7941D;
+  --color-card: #ffffff;
+  --color-alt: #F1E9DC;
+
+  --shadow-soft: 0 18px 40px rgba(0,0,0,.10);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  @apply bg-bg text-ink antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Tipografías por clases utilitarias (se definen en layout.tsx) */
+.body-font { font-family: var(--font-inter), system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+.title-font { font-family: var(--font-playfair), Georgia, 'Times New Roman', serif; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+.container-94 { @apply max-w-[1100px] mx-auto px-5; }
+.section-94   { @apply py-8 md:py-10; }
+
+.card-94 { @apply bg-card border border-black/5 rounded-2xl shadow-soft transition-transform hover:-translate-y-0.5; }
+.badge   { @apply inline-flex items-center rounded-full border border-black/10 bg-white px-2.5 py-1 text-xs; }
+
+.btn     { @apply inline-flex items-center justify-center font-semibold rounded-full px-4 py-2 transition; }
+.btn-solid   { @apply bg-accent text-white shadow-soft hover:-translate-y-[1px]; }
+.btn-line    { @apply bg-white text-ink border border-black/10 hover:-translate-y-[1px]; }
+.btn-ghost   { @apply bg-transparent text-ink border border-dashed border-black/30 hover:-translate-y-[1px]; }
+
+.link-94 { @apply text-ink/80 hover:text-ink; }
+.muted   { @apply text-muted; }
