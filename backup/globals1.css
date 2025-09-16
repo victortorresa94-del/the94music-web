@@ -20,7 +20,7 @@
 }
 
 html, body {
-  @apply bg-white text-black antialiased;
+  @apply bg-bg text-ink antialiased;
 }
 
 /* Tipografías por clases utilitarias (se definen en layout.tsx) */
@@ -40,16 +40,3 @@ html, body {
 
 .link-94 { @apply text-ink/80 hover:text-ink; }
 .muted   { @apply text-muted; }
-
-/* Utilidades adicionales para el nuevo diseño */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Ocultar scrollbar en rails horizontales */
-.rail {
-  scrollbar-width: none;
-}
-.rail::-webkit-scrollbar {
-  display: none;
-}
