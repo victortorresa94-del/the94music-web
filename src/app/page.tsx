@@ -1,4 +1,3 @@
-// src/app/page.tsx
 "use client";
 
 /* ==================== DATA ==================== */
@@ -67,6 +66,93 @@ const ARTISTAS = [
   },
 ];
 
+/* ==================== SECTIONS ==================== */
+function NovedadesMusicales() {
+  const NOTICIAS = [
+    {
+      title: "Estopa pondrá la música del Piromusical de La Mercè 2025",
+      desc: "Cierre de fiesta mayor el 28 de septiembre",
+      href: "https://www.timeout.es/barcelona/es/noticias/estopa-protagonista-del-piromusical-de-la-merce-2025-090425",
+      image: "/news/estopa.jpg",
+      fuente: "TimeOut",
+      fecha: "9 sept 2025",
+    },
+    {
+      title: "Belén Aguilera prepara nuevo álbum",
+      desc: "Todo sobre su evolución pop",
+      href: "https://www.mondosonoro.com/artistas-musica/belen-aguilera/",
+      image: "/news/belen.jpg",
+      fuente: "MondoSonoro",
+      fecha: "16 sept 2025",
+    },
+    {
+      title: "Pignoise avanza su nuevo single 'Celos'",
+      desc: "Vuelven al sonido más guitarrero",
+      href: "https://los40.com/2025/09/16/pignoise-sacara-su-lado-guitarrero-en-celos-su-proxima-cancion/",
+      image: "/news/pignoise.avif",
+      fuente: "LOS40",
+      fecha: "16 sept 2025",
+    },
+    {
+      title: "Aitana, dardito a Miguel Bernardeau en su nuevo tema",
+      desc: "Confirma que la canción va dedicada a su ex",
+      href: "https://www.hola.com/actualidad/20250602835506/aitana-lo-confirma-su-nueva-cancion-esta-dedicada-a-su-ex-miguel-bernardeau/",
+      image: "/news/aitana.jpg",
+      fuente: "¡HOLA!",
+      fecha: "2 jun 2025",
+    },
+    {
+      title: "Rosalía, en el centro de una nueva polémica",
+      desc: "El País SModa analiza el caso Adrover",
+      href: "https://elpais.com/smoda/moda/2025-07-29/sed-mediatica-o-activismo-politico-lo-que-encierra-la-polemica-de-miguel-adrover-con-rosalia.html",
+      image: "/news/rosalia.avif",
+      fuente: "El País SModa",
+      fecha: "29 jul 2025",
+    },
+  ];
+
+  return (
+    <section className="border-y border-black/5 bg-[#fffaf3] py-10">
+      <div className="mx-auto mb-4 flex max-w-6xl items-end justify-between px-4">
+        <h2 className="text-2xl font-semibold">Novedades musicales</h2>
+        <a className="text-sm underline decoration-black/30 hover:decoration-black" href="/novedades">
+          Ver todas →
+        </a>
+      </div>
+
+      <div className="mx-auto flex max-w-6xl gap-3 overflow-x-auto px-4 pb-2 pt-1 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {NOTICIAS.map((n) => (
+          <a
+            key={n.title}
+            href={n.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="snap-start shrink-0 basis-[82%] sm:basis-[46%] lg:basis-[31%] rounded-2xl bg-white ring-1 ring-black/5 hover:ring-black/10 transition overflow-hidden"
+          >
+            <div className="relative h-40 w-full">
+              <img
+                src={n.image}
+                alt={n.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <span className="absolute top-2 left-2 rounded-full bg-white/90 px-2 py-0.5 text-xs text-black/70 ring-1 ring-black/10">
+                {n.fuente}
+              </span>
+            </div>
+            <div className="p-4">
+              <h3 className="text-base font-semibold">{n.title}</h3>
+              <p className="mt-1 text-sm text-black/60">{n.desc}</p>
+              <p className="mt-2 text-xs text-black/40">{n.fecha}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
 /* ==================== PAGE ==================== */
 
 export default function Home() {
@@ -74,12 +160,15 @@ export default function Home() {
     <main className="bg-white text-black">
       <Hero />
       <Pillars />
+      <NovedadesMusicales />
       <ArtistsRail />
       <Playlists />
       <Statement />
     </main>
   );
 }
+
+/* ... el resto de Hero, Pillars, ArtistsRail, Playlists, Statement se queda igual ... */
 
 /* ==================== SECTIONS ==================== */
 
@@ -120,7 +209,7 @@ function Pillars() {
           Ver todos los servicios →
         </a>
       </div>
-
+      
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {PILLARS.map((p) => (
           <a
@@ -145,21 +234,32 @@ function Pillars() {
   );
 }
 
-function Statement() {
+function News() {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-14">
-      <p className="text-balance text-center text-2xl font-semibold leading-tight sm:text-3xl">
-        “Somos el puente entre <span className="underline decoration-black/20">artistas con algo que decir</span> y{" "}
-        <span className="underline decoration-black/20">marcas/eventos con algo que contar</span>. Curamos, producimos y
-        convertimos cada show en contenido que vive más allá de la noche.”
-      </p>
-      <div className="mt-6 flex justify-center">
-        <a
-          href="/contacto"
-          className="inline-flex items-center rounded-2xl border border-black/10 px-5 py-2.5 hover:bg-black/5"
-        >
-          Hablemos
-        </a>
+    <section className="bg-[#fffaf3] py-14 border-y border-black/5">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="mb-6 flex items-end justify-between">
+          <h2 className="text-2xl font-semibold">Novedades musicales</h2>
+          <a className="text-sm underline decoration-black/30 hover:decoration-black" href="/novedades">
+            Ver todas →
+          </a>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {NOTICIAS.map((n) => (
+            <a key={n.title} href={n.href} target="_blank" rel="noopener noreferrer" className="group">
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
+                <img
+                  src={n.image}
+                  alt={n.title}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="mt-3 text-lg font-semibold group-hover:underline">{n.title}</h3>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -241,4 +341,22 @@ function Playlists() {
   );
 }
 
-
+function Statement() {
+  return (
+    <section className="mx-auto max-w-5xl px-4 py-14">
+      <p className="text-balance text-center text-2xl font-semibold leading-tight sm:text-3xl">
+        “Somos el puente entre <span className="underline decoration-black/20">artistas con algo que decir</span> y{" "}
+        <span className="underline decoration-black/20">marcas/eventos con algo que contar</span>. Curamos, producimos y
+        convertimos cada show en contenido que vive más allá de la noche.”
+      </p>
+      <div className="mt-6 flex justify-center">
+        <a
+          href="/contacto"
+          className="inline-flex items-center rounded-2xl border border-black/10 px-5 py-2.5 hover:bg-black/5"
+        >
+          Hablemos
+        </a>
+      </div>
+    </section>
+  );
+}
