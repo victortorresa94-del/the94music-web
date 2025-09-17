@@ -1,35 +1,79 @@
 // src/app/page.tsx
 "use client";
 
-const PILLARS = [
-  { key: "connect", title: "94 Connect", desc: "Conecta artistas con marcas, venues y oportunidades reales.", href: "/connect" },
-  { key: "events", title: "94 Events", desc: "Diseño y producción de shows. Del briefing al showtime.", href: "/events" },
-  { key: "mgmt", title: "94 Management", desc: "Estrategia, catálogo, prensa y crecimiento artístico.", href: "/management" },
-  { key: "studio", title: "94 Studio", desc: "Audio & visual. Grabación, sesiones en vivo y contenido.", href: "/studio" },
-];
+/* ==================== DATA ==================== */
 
-const NOVEDADES = [
-  { title: "Radar 94 · Semana", tag: "Lanzamientos", href: "/novedades" },
-  { title: "Entrevista 5×5", tag: "Formato corto", href: "/entrevistas" },
-  { title: "Flamenco & Fusión", tag: "Deep dive", href: "/flamenco" },
-  { title: "Rumbo a Festivales", tag: "Guía", href: "/guia-festivales" },
-  { title: "Tips de Booking", tag: "Pro", href: "/tips-booking" },
+const PILLARS = [
+  {
+    key: "connect",
+    title: "94 Connect",
+    desc: "Hacemos match entre artistas y marcas/venues con métricas y buen criterio.",
+    href: "/connect",
+    cover: "/images/pillars/connect.png",
+  },
+  {
+    key: "events",
+    title: "94 Events",
+    desc: "Del briefing al showtime: booking, técnica y contenido post-evento.",
+    href: "/events",
+    cover: "/images/pillars/events.png",
+  },
+  {
+    key: "mgmt",
+    title: "94 Management",
+    desc: "Plan editorial, lanzamientos, PR y crecimiento sostenible.",
+    href: "/management",
+    cover: "/images/pillars/mgmt.png",
+  },
+  {
+    key: "studio",
+    title: "94 Studio",
+    desc: "Sesiones en vivo, grabación A/V y piezas sociales que sí convierten.",
+    href: "/studio",
+    cover: "/images/pillars/studio.png",
+  },
 ];
 
 const ARTISTAS = [
-  { title: "Lady Jarana", sub: "Rumba · Pop · Fusión", href: "/artistas/lady-jarana", cover: "/artistas/artista-1.JPG" },
-  { title: "Cataleya", sub: "Soul · Pop elegante", href: "/artistas/cataleya", cover: "/artistas/artista-2.jpg" },
-  { title: "BEX Band", sub: "Indie · Pop", href: "/artistas/bex-band", cover: "/artistas/artista-3.jpg" },
-  { title: "Caribe Song", sub: "Latino · Tropical", href: "/artistas/caribe-song", cover: "/artistas/artista-4.jpg" },
-  { title: "Julio Cé", sub: "Funk · Groove", href: "/artistas/julio-ce", cover: "/artistas/artista-5.jpg" },
+  {
+    title: "Lady Jarana",
+    sub: "Rumba · Pop · Fusión",
+    href: "/artistas/lady-jarana",
+    cover: "/artistas/artista-1.JPG",
+  },
+  {
+    title: "Cataleya",
+    sub: "Soul · Pop elegante",
+    href: "/artistas/cataleya",
+    cover: "/artistas/artista-2.jpg",
+  },
+  {
+    title: "La Payara",
+    sub: "Electro-cumbia · Ritmos globales",
+    href: "/artistas/la-payara",
+    cover: "/artistas/la-payara.avif",
+  },
+  {
+    title: "BEX Band",
+    sub: "Indie · Pop",
+    href: "/artistas/bex-band",
+    cover: "/artistas/bex-band.jpg",
+  },
+  {
+    title: "Miris Way",
+    sub: "Covers 80s con toque elegante",
+    href: "/artistas/miris-way",
+    cover: "/artistas/miris-way.jpg",
+  },
 ];
+
+/* ==================== PAGE ==================== */
 
 export default function Home() {
   return (
     <main className="bg-white text-black">
       <Hero />
       <Pillars />
-      <NovedadesHoriz />
       <ArtistsRail />
       <Playlists />
       <Statement />
@@ -37,72 +81,30 @@ export default function Home() {
   );
 }
 
+/* ==================== SECTIONS ==================== */
+
 function Hero() {
   return (
-    <section className="relative h-[100svh] w-full overflow-hidden">
-      {/* 🎥 Video de fondo */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover -z-10 scale-125"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        style={{ pointerEvents: "none" }}
-        onLoadedData={(e) => {
-          // Forzar reproducción cuando el video esté listo
-          e.currentTarget.play().catch(console.log);
-        }}
-      >
-        <source src="https://raw.githubusercontent.com/victortorresa94-del/the94music-web/main/public/videos/hero.mp4" type="video/mp4" />
-        <source src="/videos/hero.webm" type="video/webm" />
-        {/* Fallback si el video no carga */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2070&auto=format&fit=crop')"
-          }}
-        />
-      </video>
-      
-      {/* Overlay oscuro para mejor legibilidad */}
-      <div className="absolute inset-0 bg-black/40 -z-10" />
-
-      {/* Texto encima */}
-      <div className="relative mx-auto flex h-full max-w-6xl flex-col justify-end gap-6 px-4 pb-14 sm:pb-16">
-        <div className="max-w-3xl">
-          <h1 className="font-semibold tracking-tight text-white text-5xl leading-[1.05] sm:text-6xl drop-shadow-lg">
-            Música en vivo que{" "}
-            <span className="underline decoration-white/60 underline-offset-4">
-              mueve personas
-            </span>{" "}
-            y marca diferencia.
-          </h1>
-          <p className="mt-3 text-white/90 text-lg drop-shadow-md">
-            Curaduría real, producción sin estrés y contenido que trasciende el evento.{" "}
-            <span className="font-medium">Helping crazy people since 1994.</span>
-          </p>
-        </div>
-
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="/briefing"
-            className="inline-flex items-center rounded-2xl bg-white px-5 py-2.5 text-black transition hover:opacity-90"
-          >
-            Pide propuesta
+    <section
+      className="relative h-[100vh] w-full bg-cover bg-center flex items-center justify-center text-center"
+      style={{ backgroundImage: "url('/images/hero.jpg')" }}
+    >
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="relative z-10 text-white">
+        <h1 className="text-6xl font-bold tracking-wide">MUSIC EVERYWHERE</h1>
+        <p className="mt-4 text-lg">Comunidad de artistas y proyectos musicales</p>
+        <div className="mt-6 flex justify-center gap-4">
+          <a href="/briefing" className="px-6 py-3 rounded-full bg-white text-black">
+            Crea tu Live Music
           </a>
-          <a
-            href="/artistas"
-            className="inline-flex items-center rounded-2xl border border-white/30 bg-white/10 px-5 py-2.5 text-white backdrop-blur transition hover:bg-white/20"
-          >
+          <a href="/artistas" className="px-6 py-3 rounded-full border border-white">
             Ver artistas
           </a>
         </div>
-
-        <div className="mt-1 flex flex-wrap gap-4 text-sm text-white/90 drop-shadow">
-          <span>Comunidad <b className="text-white">14k+</b></span>
-          <span>Clips/semana <b className="text-white">4–6</b></span>
-          <span>Respuesta <b className="text-white">&lt;24h</b></span>
+        <div className="mt-6 flex justify-center gap-6 text-sm">
+          <span>Comunidad <b>14k+</b></span>
+          <span>Artistas <b>25+</b></span>
+          <span>Eventos <b>60+</b></span>
         </div>
       </div>
     </section>
@@ -118,20 +120,24 @@ function Pillars() {
           Ver todos los servicios →
         </a>
       </div>
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {PILLARS.map((p) => (
           <a
             key={p.key}
             href={p.href}
-            className="group rounded-2xl border border-black/10 p-5 transition hover:border-black/20 hover:shadow-[0_8px_30px_rgb(0,0,0,0.07)]"
+            className="group relative isolate overflow-hidden rounded-2xl h-48 flex items-end p-4"
+            style={{
+              backgroundImage: `url('${p.cover}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
-            <div className="mb-2 flex items-center justify-between">
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition" />
+            <div className="relative z-10 text-white">
               <h3 className="text-lg font-semibold">{p.title}</h3>
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 transition group-hover:translate-x-0.5">
-                →
-              </span>
+              <p className="text-sm opacity-90">{p.desc}</p>
             </div>
-            <p className="text-sm text-black/70">{p.desc}</p>
           </a>
         ))}
       </div>
@@ -139,30 +145,21 @@ function Pillars() {
   );
 }
 
-function NovedadesHoriz() {
+function Statement() {
   return (
-    <section className="border-y border-black/5 bg-[#fffaf3] py-10">
-      <div className="mx-auto mb-4 flex max-w-6xl items-end justify-between px-4">
-        <h2 className="text-2xl font-semibold">Novedades 94</h2>
-        <a className="text-sm underline decoration-black/30 hover:decoration-black" href="/novedades">
-          Ver todo →
+    <section className="mx-auto max-w-5xl px-4 py-14">
+      <p className="text-balance text-center text-2xl font-semibold leading-tight sm:text-3xl">
+        “Somos el puente entre <span className="underline decoration-black/20">artistas con algo que decir</span> y{" "}
+        <span className="underline decoration-black/20">marcas/eventos con algo que contar</span>. Curamos, producimos y
+        convertimos cada show en contenido que vive más allá de la noche.”
+      </p>
+      <div className="mt-6 flex justify-center">
+        <a
+          href="/contacto"
+          className="inline-flex items-center rounded-2xl border border-black/10 px-5 py-2.5 hover:bg-black/5"
+        >
+          Hablemos
         </a>
-      </div>
-
-      <div className="mx-auto flex max-w-6xl gap-3 overflow-x-auto px-4 pb-2 pt-1 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {NOVEDADES.map((n) => (
-          <a
-            key={n.title}
-            href={n.href}
-            className="snap-start shrink-0 basis-[82%] sm:basis-[46%] lg:basis-[31%] rounded-2xl bg-white p-5 ring-1 ring-black/5 transition hover:ring-black/10"
-          >
-            <span className="mb-2 inline-flex items-center rounded-full border border-black/10 px-2 py-0.5 text-xs text-black/70">
-              {n.tag}
-            </span>
-            <h3 className="text-lg font-semibold">{n.title}</h3>
-            <p className="mt-1 text-sm text-black/60">Actualizado cada semana con lo que de verdad importa.</p>
-          </a>
-        ))}
       </div>
     </section>
   );
@@ -244,22 +241,4 @@ function Playlists() {
   );
 }
 
-function Statement() {
-  return (
-    <section className="mx-auto max-w-5xl px-4 py-14">
-      <p className="text-balance text-center text-2xl font-semibold leading-tight sm:text-3xl">
-        “Somos el puente entre <span className="underline decoration-black/20">artistas con algo que decir</span> y{" "}
-        <span className="underline decoration-black/20">marcas/eventos con algo que contar</span>. Curamos, producimos y
-        convertimos cada show en contenido que vive más allá de la noche.”
-      </p>
-      <div className="mt-6 flex justify-center">
-        <a
-          href="/contacto"
-          className="inline-flex items-center rounded-2xl border border-black/10 px-5 py-2.5 hover:bg-black/5"
-        >
-          Hablemos
-        </a>
-      </div>
-    </section>
-  );
-}
+
