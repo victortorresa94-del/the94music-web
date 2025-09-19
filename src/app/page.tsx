@@ -648,7 +648,9 @@ function OpportunitiesPreview() {
 }
 
 
-function iconFor(type) {
+function iconFor(
+  type: "Bolos" | "Técnicos" | "Audiovisual" | "Colaboraciones"
+): string {
   switch (type) {
     case "Bolos":
       return "🎤";
