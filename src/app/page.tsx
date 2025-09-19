@@ -264,36 +264,7 @@ function Pillars() {
   );
 }
 
-function News() {
-  return (
-    <section className="bg-[#fffaf3] py-14 border-y border-black/5">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-2xl font-semibold">Novedades musicales</h2>
-          <a className="text-sm underline decoration-black/30 hover:decoration-black" href="/novedades">
-            Ver todas →
-          </a>
-        </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {NovedadesMusicales.map((n) => (
-            <a key={n.title} href={n.href} target="_blank" rel="noopener noreferrer" className="group">
-              <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
-                <img
-                  src={n.image}
-                  alt={n.title}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="mt-3 text-lg font-semibold group-hover:underline">{n.title}</h3>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function ArtistsRail() {
   return (
