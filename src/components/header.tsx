@@ -20,7 +20,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3" aria-label="Inicio 94 Music">
           <img src="/logo94.png" alt="94 Music" className="h-8 w-auto" />
-          <span className="tracking-widest text-xl text-white">94 MUSIC</span>
+          <span className="tracking-widest text-xl text-white">THE 94 MUSIC</span>
         </Link>
 
         {/* Menú */}
