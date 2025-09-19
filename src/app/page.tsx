@@ -276,7 +276,7 @@ function News() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {Novedadesmusicales.map((n) => (
+          {NovedadesMusicales.map((n) => (
             <a key={n.title} href={n.href} target="_blank" rel="noopener noreferrer" className="group">
               <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
                 <img
